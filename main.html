@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+
+
+    <meta charset="UTF-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta name="description" content="Yozgi IT Oromgoh - zamonaviy IT yo'nalishlari bo'yicha o'quv dasturlari. Python, Flutter, AI, DevOps va boshqa ko'plab yo'nalishlar. Ro'yxatdan o'ting!">
+    <meta name="keywords" content="Yozgi IT Oromgoh, IT o'quv dasturlari, Python, Flutter, AI, DevOps, Veb Dizayn">
+    <meta name="author" content="Shamshodbek's Camp">
+
+
+
+    <meta property="og:title" content="Yozgi IT Oromgoh - IT o'quv dasturlari">
+    <meta property="og:description"
+        content="Yozgi IT Oromgoh - zamonaviy IT yo'nalishlari bo'yicha o'quv dasturlari. Python, Flutter, AI, DevOps va boshqa ko'plab yo'nalishlar. Ro'yxatdan o'ting!">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80">
+    <meta property="og:site_name" content="Yozgi IT Oromgoh">
+    <meta property="og:locale" content="uz_UZ">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="ru_RU">
+    <meta property="og:locale:alternate" content="uz_UZ"> 
+    <meta property="og:type" content="website">
+
+    <meta property="og:url" content="https://www.google.com/">
+
+
+    <title>Shamshodbek's Camp </title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(41, 128, 185, 0.3) 0%, rgba(44, 62, 80, 0.4) 100%),
+                url('https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .hero-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, rgba(44, 62, 80, 0.98) 0%, rgba(52, 152, 219, 0.98) 100%) !important;
+            padding: 15px 0;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar.scrolled {
+            background: linear-gradient(90deg, rgba(44, 62, 80, 1) 0%, rgba(52, 152, 219, 1) 100%) !important;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: white !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-link:hover {
+            color: var(--light-color) !important;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover .logo-icon {
+            transform: rotate(15deg);
+        }
+
+        .nav-link.btn-primary {
+            transition: all 0.3s ease;
+        }
+
+        .nav-link.btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .navbar {
+            background-color: rgba(44, 62, 80, 0.9) !important;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(44, 62, 80, 0.5);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+
+        .courses-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .course-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-left: 5px solid;
+        }
+
+        .course-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Colorful borders for each course */
+        .course-card[data-course="Python"] {
+            border-left-color: #3776ab;
+        }
+
+        .course-card[data-course="Flutter"] {
+            border-left-color: #02569b;
+        }
+
+        .course-card[data-course="Sun'iy Intellekt (AI)"] {
+            border-left-color: #ff6b35;
+        }
+
+        .course-card[data-course="DevOps"] {
+            border-left-color: #2496ed;
+        }
+
+        .course-card[data-course=".NET"] {
+            border-left-color: #512bd4;
+        }
+
+        .course-card[data-course="Veb Dizayn"] {
+            border-left-color: #ff4081;
+        }
+
+        .course-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .course-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .course-card:hover .course-title::after {
+            width: 100%;
+        }
+
+        .course-img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-title {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .course-body {
+            padding: 1.5rem;
+        }
+
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+
+
+    <meta name="title"
+        content="Webgarh Solutions Pvt. Ltd. | Webgarh Labs | Custom Software, E-Commerce &amp; AI Solutions">
+    <meta property="og:image" content="https://www.webgarh.com/images/social-banner.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.webgarh.com/">
+    <meta property="twitter:title"
+        content="Webgarh Solutions Pvt. Ltd. | Webgarh Labs | Custom Software, E-Commerce &amp; AI Solutions">
+    <meta property="twitter:description"
+        content="Explore innovative technology with Webgarh Solutions and Webgarh Labs — your partner for software development, AI tools, and next-gen e-commerce solutions.">
+    <meta property="twitter:image" content="https://www.webgarh.com/images/social-banner.jpg">
+    <meta name="author" content="Webgarh Solutions Pvt. Ltd. | Webgarh Labs">
+    <meta name="keywords"
+        content="Webgarh, Webgarh Labs, Software Development, Shopify Development, E-Commerce Solutions, AI Tools, Automation, Custom Software, Web Development, Experimental Tech, IT Services">
+    <meta name="robots" content="index, follow">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                <span class="logo-icon me-2">🌐</span>
+                <span>Yozgi IT Oromgoh</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-home me-1"></i> Bosh sahifa
+                        </a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#courses">
+                            <i class="fas fa-laptop-code me-1"></i> Yo'nalishlar
+                        </a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#about">
+                            <i class="fas fa-info-circle me-1"></i> Biz haqimizda
+                        </a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#contact">
+                            <i class="fas fa-envelope me-1"></i> Aloqa
+                        </a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link btn btn-primary px-3 py-2 rounded-pill" href="#" data-bs-toggle="modal"
+                            data-bs-target="#registrationModal">
+                            <i class="fas fa-user-plus me-1"></i> Ro'yxatdan o'tish
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" style="min-height: 100vh;">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title animate__animated animate__fadeInDown">🌐 Yozgi IT Oromgoh</h1>
+                <p class="hero-subtitle animate__animated animate__fadeInUp">Texnologiyalar bilan tanishing va
+                    ro'yxatdan o'ting</p>
+                <a href="#courses" class="btn btn-primary btn-lg animate__animated animate__fadeIn">Yo'nalishlarni
+                    ko'rish</a>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#fff" fill-opacity="1"
+                    d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses-section">
+        <div class="container">
+            <h2 class="section-title">Yo'nalishlarimiz</h2>
+            <div class="row g-4">
+                <!-- Python Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
+                        data-course="Python">
+                        <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                            class="course-img card-img-top" alt="Python">
+                        <div class="course-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fab fa-python fs-4 text-primary"></i>
+                                </div>
+                                <h3 class="course-title mb-0">Python Dasturlash</h3>
+                            </div>
+                            <p class="card-text">Python asoslaridan tortib to mukammal dasturlashgacha bo'lgan
+                                yo'nalish. Django va Flask frameworklari bilan tanishish.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary bg-opacity-10 text-primary me-2">Django</span>
+                                <span class="badge bg-primary bg-opacity-10 text-primary me-2">Flask</span>
+                                <span class="badge bg-primary bg-opacity-10 text-primary">Data Science</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flutter Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
+                        data-course="Flutter">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                            class="course-img card-img-top" alt="Flutter">
+                        <div class="course-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-info bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fab fa-flutter fs-4 text-info"></i>
+                                </div>
+                                <h3 class="course-title mb-0">Flutter Mobil Dasturlash</h3>
+                            </div>
+                            <p class="card-text">Flutter frameworki yordamida iOS va Android platformalari uchun bir
+                                vaqtning o'zida mobil ilovalar yaratish.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-info bg-opacity-10 text-info me-2">Dart</span>
+                                <span class="badge bg-info bg-opacity-10 text-info me-2">Firebase</span>
+                                <span class="badge bg-info bg-opacity-10 text-info">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
+                        data-course="Sun'iy Intellekt (AI)">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            class="course-img card-img-top" alt="AI">
+                        <div class="course-body">
+                            <h3 class="course-title">Sun'iy Intellekt (AI)</h3>
+                            <p class="card-text">Machine Learning, Deep Learning va Sun'iy Intellektning asosiy
+                                tamoyillari va amaliy qo'llanilishi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
+                        data-course="DevOps">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                            class="course-img card-img-top" alt="DevOps">
+                        <div class="course-body">
+                            <h3 class="course-title">DevOps</h3>
+                            <p class="card-text">Docker, Kubernetes, CI/CD va boshqa zamonaviy DevOps asboblari bilan
+                                ishlashni o'rganing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- .NET Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
+                        data-course=".NET">
+                        <img src="https://images.unsplash.com/photo-1614332287897-cdc485fa562d?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                            class="course-img card-img-top" alt=".NET">
+                        <div class="course-body">
+                            <h3 class="course-title">.NET Dasturlash</h3>
+                            <p class="card-text">C# va .NET framework yordamida korporativ darajadagi ilovalar yaratish.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Design Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
+                        data-course="Veb Dizayn">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                            class="course-img card-img-top" alt="Web Design">
+                        <div class="course-body">
+                            <h3 class="course-title">Veb Dizayn</h3>
+                            <p class="card-text">HTML, CSS, JavaScript va zamonaviy frameworklar yordamida chiroyli va
+                                funksional veb-saytlar yaratish.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title text-start">Biz haqimizda</h2>
+                    <p class="lead">Yozgi IT Oromgoh - bu yoshlarga zamonaviy IT yo'nalishlarini o'rgatish va ularning
+                        kelajakdagi kasbiy faoliyatiga yo'l ochish maqsadida tashkil etilgan loyiha.</p>
+                    <p>Bizning o'quv dasturlarimiz amaliyotga asoslangan bo'lib, har bir o'quvchi real loyihalarda
+                        ishlash imkoniyatiga ega bo'ladi. Tajribali mutaxassislar tomonidan tuzilgan dasturlarimiz sizga
+                        eng so'nggi texnologiyalarni o'zlashtirishga yordam beradi.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                        class="img-fluid rounded shadow" alt="Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Aloqa</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title">Biz bilan bog'laning</h3>
+                            <p class="card-text"><i class="bi bi-geo-alt-fill"></i> Manzil: Toshkent shahri, Yunusobod
+                                tumani</p>
+                            <p class="card-text"><i class="bi bi-telephone-fill"></i> Telefon: +998 90 123 45 67</p>
+                            <p class="card-text"><i class="bi bi-envelope-fill"></i> Email: info@it-oromgoh.uz</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Savollaringiz bormi?</h3>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Ismingiz">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email manzilingiz">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="3" placeholder="Xabaringiz"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Yuborish</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h3>🌐 Yozgi IT Oromgoh</h3>
+                    <p>Texnologiyalar bilan tanishing va kelajagingizni quring</p>
+                </div>
+
+                <div class="col-md-8">
+                    <h3>Ijtimoiy tarmoqlar</h3>
+                    <div class="d-flex justify-content-center gap-4 mt-3">
+                        <a href="https://t.me/shamshodbek_cyber" class="social-icon" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+                                alt="Telegram" width="40">
+                        </a>
+                        <a href="https://instagram.com/shamshodbek_cyber" class="social-icon" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                                alt="Instagram" width="40">
+                        </a>
+                        <a href="https://facebook.com/shamshodbek_cyber" class="social-icon" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                                alt="Facebook" width="40">
+                        </a>
+                        <a href="https://youtube.com/shamshodbek_cyber" class="social-icon" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+                                alt="YouTube" width="40" height="38">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <p class="mb-0">© 2025 Yozgi IT Oromgoh. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registrationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ro'yxatdan o'tish</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registrationForm">
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">Ism</label>
+                            <input type="text" class="form-control" id="firstName" required="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Familiya</label>
+                            <input type="text" class="form-control" id="lastName" required="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefon raqam</label>
+                            <input type="tel" class="form-control" id="phone" required="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="about" class="form-label">O'zingiz haqingizda qisqacha</label>
+                            <textarea class="form-control" id="about" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="course" class="form-label">Yo'nalish</label>
+                            <select class="form-select" id="course" required="">
+                                <option value="" selected="" disabled="">Tanlang</option>
+                                <option value="Python">Python Dasturlash</option>
+                                <option value="Flutter">Flutter Mobil Dasturlash</option>
+                                <option value="Sun'iy Intellekt (AI)">Sun'iy Intellekt (AI)</option>
+                                <option value="DevOps">DevOps</option>
+                                <option value=".NET">.NET Dasturlash</option>
+                                <option value="Veb Dizayn">Veb Dizayn</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
+                    <button type="submit" form="registrationForm" class="btn btn-primary">Yuborish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Set course in modal when card is clicked
+        document.addEventListener('DOMContentLoaded', function () {
+            const registrationModal = document.getElementById('registrationModal');
+            if (registrationModal) {
+                registrationModal.addEventListener('show.bs.modal', function (event) {
+                    const button = event.relatedTarget;
+                    const course = button.getAttribute('data-course');
+                    const modalCourseSelect = registrationModal.querySelector('#course');
+                    if (course && modalCourseSelect) {
+                        modalCourseSelect.value = course;
+                    }
+                });
+            }
+
+            // Form submission
+            const registrationForm = document.getElementById('registrationForm');
+            if (registrationForm) {
+                registrationForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const formData = new FormData(registrationForm);
+                    const data = Object.fromEntries(formData.entries());
+                    data.timestamp = new Date().toISOString();
+
+                    fetch(' save_registration.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    })
+                    .then(res => res.json())
+                    .then(res => {
+                        if (res.success) {
+                            alert("Ma'lumotlaringiz saqlandi!");
+                            registrationForm.reset();
+                            const modal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
+                            if (modal) modal.hide();
+                        } else {
+                            alert("Xatolik yuz berdi!");
+                        }
+                    })
+                    .catch(() => alert("Xatolik yuz berdi!"));
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
