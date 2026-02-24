@@ -1,737 +1,1492 @@
-<!DOCTYPE html>
-<html lang="uz">
-
+<!doctype html>
+<html lang="en">
 <head>
-
-
-    <meta charset="UTF-8">
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <meta name="description" content="Yozgi IT Oromgoh - zamonaviy IT yo'nalishlari bo'yicha o'quv dasturlari. Python, Flutter, AI, DevOps va boshqa ko'plab yo'nalishlar. Ro'yxatdan o'ting!">
-    <meta name="keywords" content="Yozgi IT Oromgoh, IT o'quv dasturlari, Python, Flutter, AI, DevOps, Veb Dizayn">
-    <meta name="author" content="Shamshodbek's Camp">
-
-
-
-    <meta property="og:title" content="Yozgi IT Oromgoh - IT o'quv dasturlari">
-    <meta property="og:description"
-        content="Yozgi IT Oromgoh - zamonaviy IT yo'nalishlari bo'yicha o'quv dasturlari. Python, Flutter, AI, DevOps va boshqa ko'plab yo'nalishlar. Ro'yxatdan o'ting!">
-    <meta property="og:image"
-        content="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80">
-    <meta property="og:site_name" content="Yozgi IT Oromgoh">
-    <meta property="og:locale" content="uz_UZ">
-    <meta property="og:locale:alternate" content="en_US">
-    <meta property="og:locale:alternate" content="ru_RU">
-    <meta property="og:locale:alternate" content="uz_UZ"> 
-    <meta property="og:type" content="website">
-
-    <meta property="og:url" content="https://www.google.com/">
-
-
-    <title>Shamshodbek's Camp </title>
-
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
-
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: var(--dark-color);
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, rgba(41, 128, 185, 0.3) 0%, rgba(44, 62, 80, 0.4) 100%),
-                url('https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
-            color: white;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-        }
-
-        .hero-wave svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 150px;
-        }
-
-        .navbar {
-            background: linear-gradient(90deg, rgba(44, 62, 80, 0.98) 0%, rgba(52, 152, 219, 0.98) 100%) !important;
-            padding: 15px 0;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        .navbar.scrolled {
-            background: linear-gradient(90deg, rgba(44, 62, 80, 1) 0%, rgba(52, 152, 219, 1) 100%) !important;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            padding: 10px 0;
-        }
-
-        .navbar-brand,
-        .nav-link {
-            color: white !important;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-link:hover {
-            color: var(--light-color) !important;
-        }
-
-        .logo-icon {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-brand:hover .logo-icon {
-            transform: rotate(15deg);
-        }
-
-        .nav-link.btn-primary {
-            transition: all 0.3s ease;
-        }
-
-        .nav-link.btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
-        }
-
-        .navbar {
-            background-color: rgba(44, 62, 80, 0.9) !important;
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            background-color: var(--primary-color) !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-link {
-            position: relative;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--secondary-color);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover {
-            color: var(--secondary-color) !important;
-        }
-
-        .nav-link:hover::after {
-            width: 80%;
-        }
-
-        .hero-content {
-            text-align: center;
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: rgba(44, 62, 80, 0.5);
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            animation: fadeInDown 1s;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s;
-        }
-
-        .btn-primary {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-            padding: 0.75rem 2rem;
-            font-weight: 600;
-            animation: pulse 2s infinite;
-        }
-
-        .btn-primary:hover {
-            background-color: #2980b9;
-            border-color: #2980b9;
-        }
-
-        .courses-section {
-            padding: 5rem 0;
-            background-color: white;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .course-card {
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            height: 100%;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            border-left: 5px solid;
-        }
-
-        .course-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Colorful borders for each course */
-        .course-card[data-course="Python"] {
-            border-left-color: #3776ab;
-        }
-
-        .course-card[data-course="Flutter"] {
-            border-left-color: #02569b;
-        }
-
-        .course-card[data-course="Sun'iy Intellekt (AI)"] {
-            border-left-color: #ff6b35;
-        }
-
-        .course-card[data-course="DevOps"] {
-            border-left-color: #2496ed;
-        }
-
-        .course-card[data-course=".NET"] {
-            border-left-color: #512bd4;
-        }
-
-        .course-card[data-course="Veb Dizayn"] {
-            border-left-color: #ff4081;
-        }
-
-        .course-title {
-            position: relative;
-            display: inline-block;
-        }
-
-        .course-title::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: currentColor;
-            transition: width 0.3s ease;
-        }
-
-        .course-card:hover .course-title::after {
-            width: 100%;
-        }
-
-        .course-img {
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .course-title {
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .course-body {
-            padding: 1.5rem;
-        }
-
-        .modal-content {
-            border-radius: 15px;
-            border: none;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal-header {
-            background-color: var(--secondary-color);
-            color: white;
-            border-radius: 15px 15px 0 0 !important;
-        }
-
-        .form-control:focus {
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
-        }
-
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 3rem 0;
-        }
-
-        .social-icon {
-            transition: transform 0.3s ease;
-        }
-
-        .social-icon:hover {
-            transform: scale(1.2);
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
-
-
-    <meta name="title"
-        content="Webgarh Solutions Pvt. Ltd. | Webgarh Labs | Custom Software, E-Commerce &amp; AI Solutions">
-    <meta property="og:image" content="https://www.webgarh.com/images/social-banner.jpg">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.webgarh.com/">
-    <meta property="twitter:title"
-        content="Webgarh Solutions Pvt. Ltd. | Webgarh Labs | Custom Software, E-Commerce &amp; AI Solutions">
-    <meta property="twitter:description"
-        content="Explore innovative technology with Webgarh Solutions and Webgarh Labs — your partner for software development, AI tools, and next-gen e-commerce solutions.">
-    <meta property="twitter:image" content="https://www.webgarh.com/images/social-banner.jpg">
-    <meta name="author" content="Webgarh Solutions Pvt. Ltd. | Webgarh Labs">
-    <meta name="keywords"
-        content="Webgarh, Webgarh Labs, Software Development, Shopify Development, E-Commerce Solutions, AI Tools, Automation, Custom Software, Web Development, Experimental Tech, IT Services">
-    <meta name="robots" content="index, follow">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI SkillMap Uzbekistan — AI Workforce Intelligence Portal</title>
+
+  <!-- Premium fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <style>
+    :root{
+      --bg0:#050716;
+      --bg1:#0A0F22;
+      --panel: rgba(10, 16, 38, .58);
+      --panel2: rgba(10, 16, 38, .82);
+
+      --text:#EAF0FF;
+      --muted:#A6B0D6;
+
+      --cyan:#00E6FF;
+      --blue:#2D7DFF;
+      --purple:#8B5CF6;
+      --green:#00FF9C;
+      --pink:#FF4DFF;
+
+      --line: rgba(255,255,255,.10);
+      --line2: rgba(255,255,255,.07);
+
+      --shadow: 0 22px 80px rgba(0,0,0,.65);
+      --r: 18px;
+      --r2: 24px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 8%, rgba(139,92,246,.22), transparent 60%),
+        radial-gradient(900px 650px at 80% 12%, rgba(0,230,255,.16), transparent 60%),
+        radial-gradient(1000px 800px at 50% 92%, rgba(0,255,156,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    /* Animated grid + vignette */
+    .bgGrid{
+      position:fixed; inset:0; pointer-events:none; z-index:0;
+      opacity:.22;
+      background:
+        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(720px 460px at 50% 0%, black, transparent 72%);
+      animation: gridMove 14s linear infinite;
+    }
+    @keyframes gridMove{ from{ transform: translateY(0);} to{ transform: translateY(64px);} }
+
+    .vignette{
+      position:fixed; inset:0; pointer-events:none; z-index:0;
+      background: radial-gradient(900px 520px at 50% 0%, transparent, rgba(0,0,0,.38) 62%, rgba(0,0,0,.62));
+    }
+
+    /* Particles */
+    .particles{ position:fixed; inset:0; pointer-events:none; opacity:.32; z-index:0; }
+    .p{
+      position:absolute; width:3px;height:3px;border-radius:999px;
+      background: rgba(0,230,255,.85);
+      box-shadow: 0 0 18px rgba(0,230,255,.85);
+      animation: float 10s linear infinite;
+      filter: blur(.15px);
+    }
+    @keyframes float{
+      0%{ transform: translateY(0) translateX(0); opacity:.12; }
+      15%{ opacity:.95; }
+      100%{ transform: translateY(-120vh) translateX(44px); opacity:0; }
+    }
+
+    .container{
+      width:min(1200px, 92vw);
+      margin:0 auto;
+      position:relative;
+      z-index:2;
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(5,7,22,.78), rgba(5,7,22,.26));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 280px;
+    }
+    .logo{
+      width:40px;height:40px;border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(0,230,255,.92), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(139,92,246,.92), transparent 55%),
+        linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 0 30px rgba(0,230,255,.14), 0 0 30px rgba(139,92,246,.10);
+    }
+    .brand h1{
+      margin:0;
+      font-family:"Space Grotesk", Inter, sans-serif;
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+    .brand p{
+      margin:4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    nav{ display:flex; gap:6px; align-items:center; }
+    nav a{
+      color: var(--muted);
+      text-decoration:none;
+      font-size: 13px;
+      padding: 10px 10px;
+      border-radius: 12px;
+      transition: .18s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    nav a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+    }
+
+    .actions{ display:flex; align-items:center; gap:10px; }
+
+    .btn{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor:pointer;
+      transition: .18s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      user-select:none;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
+    }
+    .btn.primary{
+      border:none;
+      color:#071021;
+      background: linear-gradient(135deg, rgba(0,230,255,.95), rgba(139,92,246,.95));
+      box-shadow: 0 16px 48px rgba(0,230,255,.18), 0 16px 48px rgba(139,92,246,.16);
+    }
+    .btn.primary:hover{ filter: brightness(1.05); }
+    .btn.outline{
+      border: 1px solid rgba(139,92,246,.40);
+      background: rgba(139,92,246,.10);
+      box-shadow: 0 0 28px rgba(139,92,246,.10);
+    }
+    .btn.small{ padding: 8px 10px; font-size: 12px; border-radius: 12px; }
+
+    /* Hero */
+    .hero{
+      padding: 54px 0 26px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .headline{
+      font-family:"Space Grotesk", Inter, sans-serif;
+      font-weight: 800;
+      font-size: clamp(36px, 4.4vw, 54px);
+      line-height: 1.02;
+      letter-spacing: -0.7px;
+      margin: 0 0 12px;
+    }
+    .sub{
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0 0 18px;
+      max-width: 66ch;
+    }
+
+    .badgeRow{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 14px; }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .dot{ width:10px;height:10px;border-radius:999px; display:inline-block; }
+    .dot.cyan{ background: var(--cyan); box-shadow:0 0 16px rgba(0,230,255,.45); }
+    .dot.purple{ background: var(--purple); box-shadow:0 0 16px rgba(139,92,246,.45); }
+    .dot.green{ background: var(--green); box-shadow:0 0 16px rgba(0,255,156,.45); }
+
+    .questionRow{
+      display:flex; align-items:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      width: fit-content;
+      max-width: 100%;
+      box-shadow: 0 0 44px rgba(0,230,255,.07);
+      margin: 12px 0 22px;
+    }
+    .pulseDot{
+      width:10px;height:10px;border-radius:999px;
+      background: var(--green);
+      box-shadow: 0 0 18px rgba(0,255,156,.9);
+      animation: pulse 1.6s ease-in-out infinite;
+      flex: 0 0 auto;
+    }
+    @keyframes pulse{
+      0%,100%{ transform: scale(1); opacity:.75; }
+      50%{ transform: scale(1.45); opacity:1; }
+    }
+    .carouselText{
+      font-size: 14px;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      max-width: 70vw;
+      transition: opacity .2s ease;
+    }
+    .heroCtas{ display:flex; gap:10px; flex-wrap:wrap; }
+
+    /* Right hero card */
+    .heroCard{
+      border-radius: var(--r2);
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+      min-height: 300px;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(520px 260px at 18% 20%, rgba(0,230,255,.22), transparent 60%),
+        radial-gradient(520px 260px at 86% 30%, rgba(139,92,246,.22), transparent 60%),
+        radial-gradient(520px 260px at 50% 92%, rgba(0,255,156,.14), transparent 60%);
+      filter: blur(12px);
+      opacity:.82;
+    }
+    .heroCardInner{
+      position:relative;
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .kpiGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .kpi{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(10,16,38,.55);
+      padding: 12px;
+    }
+    .kpi b{
+      display:block;
+      font-family:"Space Grotesk", Inter, sans-serif;
+      font-size: 18px;
+      letter-spacing: -.2px;
+    }
+    .kpi small{ color: var(--muted); font-size: 12px; }
+    .miniCard{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(10,16,38,.55);
+      padding: 12px;
+      display:grid;
+      gap: 10px;
+    }
+    .miniCard .row{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .progressBar{
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      overflow:hidden;
+    }
+    .progressBar i{
+      display:block; height:100%; width: 78%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(0,230,255,.95), rgba(139,92,246,.95));
+      box-shadow: 0 0 26px rgba(0,230,255,.16);
+    }
+
+    /* Robot illustration */
+    .robotWrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .robotText{
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+      max-width: 40ch;
+    }
+    .robot{
+      width: 128px;
+      height: 128px;
+      filter: drop-shadow(0 0 20px rgba(0,230,255,.18)) drop-shadow(0 0 20px rgba(139,92,246,.12));
+      animation: bob 2.8s ease-in-out infinite;
+    }
+    @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-6px);} }
+
+    /* Sections */
+    .section{ padding: 24px 0 34px; }
+    .sectionHead{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      margin: 10px 0 14px;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-family:"Space Grotesk", Inter, sans-serif;
+      font-size: 22px;
+      letter-spacing: -.2px;
+    }
+    .sectionHead p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .card{
+      border-radius: var(--r2);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(10,16,38,.58);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .cardHeader{
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .cardHeader .title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight: 900;
+      letter-spacing: .1px;
+      font-size: 13px;
+    }
+    .icon{
+      width:28px;height:28px;border-radius:12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      display:grid; place-items:center;
+      box-shadow: 0 0 28px rgba(0,230,255,.06);
+      font-size: 14px;
+    }
+    .cardBody{ padding: 14px 16px; }
+
+    /* Map image + hotspots */
+    .mapStage{
+      position:relative;
+      min-height: 460px;
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+    }
+    .mapImg{
+      width: 100%;
+      height: 460px;
+      object-fit: contain;
+      display:block;
+      background: radial-gradient(700px 420px at 50% 35%, rgba(0,230,255,.08), transparent 60%);
+      filter: contrast(1.05) saturate(1.15);
+      transform: translateZ(0);
+    }
+    .mapOverlayGlow{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(520px 300px at 30% 30%, rgba(0,230,255,.12), transparent 60%),
+        radial-gradient(520px 300px at 72% 40%, rgba(139,92,246,.12), transparent 60%);
+      pointer-events:none;
+      mix-blend-mode: screen;
+    }
+    .hint{
+      position:absolute;
+      left:14px; top:14px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(5,7,22,.55);
+      backdrop-filter: blur(12px);
+      color: var(--muted);
+      font-size: 12px;
+      z-index: 2;
+    }
+
+    .hotspot{
+      position:absolute;
+      width: 14px; height: 14px;
+      border-radius: 999px;
+      background: rgba(0,230,255,.95);
+      border: 1px solid rgba(255,255,255,.35);
+      box-shadow: 0 0 0 6px rgba(0,230,255,.12), 0 0 24px rgba(0,230,255,.25);
+      cursor:pointer;
+      transition: transform .14s ease, box-shadow .14s ease;
+      z-index: 3;
+    }
+    .hotspot:hover{
+      transform: scale(1.15);
+      box-shadow: 0 0 0 8px rgba(139,92,246,.14), 0 0 30px rgba(0,230,255,.30);
+    }
+    .hotspot:after{
+      content:"";
+      position:absolute; inset:-8px;
+      border-radius:999px;
+      background: radial-gradient(circle, rgba(0,230,255,.18), transparent 60%);
+      animation: ping 1.7s ease-in-out infinite;
+    }
+    @keyframes ping{
+      0%{ transform: scale(.6); opacity:.65; }
+      100%{ transform: scale(1.35); opacity:0; }
+    }
+
+    .tooltip{
+      position:absolute;
+      pointer-events:none;
+      transform: translate(-50%, -120%);
+      background: rgba(5,7,22,.86);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 10px 12px;
+      min-width: 280px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.7);
+      opacity:0;
+      transition: opacity .12s ease;
+      z-index: 10;
+    }
+    .tooltip.show{ opacity:1; }
+    .tooltip b{ display:block; font-size: 13px; margin-bottom: 6px; }
+    .tooltip .meta{ color: var(--muted); font-size: 12px; line-height:1.45; }
+    .tags{ margin-top: 8px; display:flex; gap:8px; flex-wrap:wrap; }
+    .tag{
+      font-size: 11px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+    }
+
+    /* Right panel */
+    .sidePanel{ height:100%; display:flex; flex-direction:column; gap:12px; }
+    .panelTop{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .regionName{
+      margin:0;
+      font-family:"Space Grotesk", Inter, sans-serif;
+      font-size: 18px;
+      letter-spacing: -.2px;
+    }
+    .pill{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,230,255,.24);
+      background: rgba(0,230,255,.08);
+      font-size: 12px;
+      box-shadow: 0 0 28px rgba(0,230,255,.12);
+      font-weight: 800;
+    }
+    .muted{ color: var(--muted); font-size: 13px; line-height:1.6; }
+
+    .list{ display:grid; gap:10px; margin-top: 6px; }
+    .item{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 10px 12px;
+    }
+    .item .row{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px; margin-bottom: 6px;
+    }
+    .item .row span{ color: var(--muted); font-size: 12px; }
+    .bar{
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      overflow:hidden;
+    }
+    .bar > i{
+      display:block; height:100%;
+      width: 40%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(0,230,255,.95), rgba(139,92,246,.95));
+      box-shadow: 0 0 24px rgba(0,230,255,.16);
+    }
+
+    /* Trends */
+    .tabs{
+      display:flex; gap:10px; flex-wrap:wrap;
+      padding: 10px 16px 0;
+    }
+    .tab{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      cursor:pointer;
+      transition: .15s ease;
+    }
+    .tab.active{
+      color: var(--text);
+      border-color: rgba(0,230,255,.28);
+      background: rgba(0,230,255,.08);
+      box-shadow: 0 0 28px rgba(0,230,255,.10);
+    }
+    .chartWrap{ padding: 10px 16px 16px; }
+    canvas{ width:100% !important; height: 290px !important; }
+
+    /* Advisor */
+    .advisor{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    label{
+      font-size: 12px;
+      color: var(--muted);
+      display:block;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    input, select{
+      width:100%;
+      padding: 11px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      outline:none;
+      font-weight: 700;
+    }
+    input:focus, select:focus{
+      border-color: rgba(0,230,255,.28);
+      box-shadow: 0 0 0 4px rgba(0,230,255,.10);
+    }
+    .form{ display:grid; gap:10px; }
+
+    .outputBox{
+      border-radius: var(--r2);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 14px;
+      position:relative;
+      overflow:hidden;
+      min-height: 300px;
+    }
+    .outputBox::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(420px 220px at 18% 20%, rgba(0,230,255,.18), transparent 60%),
+        radial-gradient(420px 220px at 86% 30%, rgba(139,92,246,.18), transparent 60%);
+      filter: blur(10px);
+      opacity:.55;
+    }
+    .outputInner{ position:relative; display:grid; gap:10px; }
+    .aiStatus{
+      display:flex; align-items:center; gap:10px;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 2px;
+      font-weight: 800;
+    }
+    .spinner{
+      width:12px;height:12px;border-radius:999px;
+      border:2px solid rgba(255,255,255,.20);
+      border-top-color: rgba(0,230,255,.90);
+      animation: spin .8s linear infinite;
+      display:none;
+    }
+    @keyframes spin{ to{ transform: rotate(360deg);} }
+
+    .roadmap{ display:grid; gap:10px; }
+    .step{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(5,7,22,.35);
+      padding: 10px 12px;
+    }
+    .step b{ font-size: 12px; }
+    .step small{ display:block; color: var(--muted); margin-top: 4px; line-height:1.45; }
+
+    footer{
+      padding: 28px 0 40px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12px;
+      opacity: .95;
+    }
+
+    /* Modal */
+    .overlay{
+      position:fixed; inset:0; z-index:100;
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(8px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+    }
+    .overlay.show{ display:flex; }
+    .modal{
+      width:min(520px, 95vw);
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(10,16,38,.86);
+      box-shadow: 0 30px 90px rgba(0,0,0,.75);
+      overflow:hidden;
+      position:relative;
+    }
+    .modal:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(420px 220px at 20% 20%, rgba(0,230,255,.22), transparent 60%),
+        radial-gradient(420px 220px at 85% 30%, rgba(139,92,246,.22), transparent 60%);
+      filter: blur(12px);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .modalInner{ position:relative; padding: 16px; display:grid; gap:12px; }
+    .modalTop{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .modalTop h3{
+      margin:0;
+      font-family:"Space Grotesk", Inter, sans-serif;
+      letter-spacing:-.2px;
+    }
+    .close{
+      width:36px;height:36px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      cursor:pointer;
+      font-weight: 900;
+    }
+    .link{
+      color: rgba(0,230,255,.92);
+      cursor:pointer;
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .link:hover{ text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      nav{ display:none; }
+      .hero{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .advisor{ grid-template-columns: 1fr; }
+      canvas{ height: 250px !important; }
+      .mapImg{ height: 420px; }
+      .mapStage{ min-height: 420px; }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-                <span class="logo-icon me-2">🌐</span>
-                <span>Yozgi IT Oromgoh</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-2">
-                        <a class="nav-link active" href="#">
-                            <i class="fas fa-home me-1"></i> Bosh sahifa
-                        </a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link" href="#courses">
-                            <i class="fas fa-laptop-code me-1"></i> Yo'nalishlar
-                        </a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link" href="#about">
-                            <i class="fas fa-info-circle me-1"></i> Biz haqimizda
-                        </a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link" href="#contact">
-                            <i class="fas fa-envelope me-1"></i> Aloqa
-                        </a>
-                    </li>
-                    <li class="nav-item ms-2">
-                        <a class="nav-link btn btn-primary px-3 py-2 rounded-pill" href="#" data-bs-toggle="modal"
-                            data-bs-target="#registrationModal">
-                            <i class="fas fa-user-plus me-1"></i> Ro'yxatdan o'tish
-                        </a>
-                    </li>
-                </ul>
-            </div>
+  <div class="bgGrid"></div>
+  <div class="particles" id="particles"></div>
+  <div class="vignette"></div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          <div class="logo"></div>
+          <div>
+            <h1>AI SkillMap Uzbekistan</h1>
+            <p>AI-driven skills, jobs, and future demand intelligence</p>
+          </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section" style="min-height: 100vh;">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title animate__animated animate__fadeInDown">🌐 Yozgi IT Oromgoh</h1>
-                <p class="hero-subtitle animate__animated animate__fadeInUp">Texnologiyalar bilan tanishing va
-                    ro'yxatdan o'ting</p>
-                <a href="#courses" class="btn btn-primary btn-lg animate__animated animate__fadeIn">Yo'nalishlarni
-                    ko'rish</a>
-            </div>
+        <nav>
+          <a href="#map">🗺️ Regional Map</a>
+          <a href="#trends">📈 Skill Trends</a>
+          <a href="#advisor">🤖 AI Advisor</a>
+          <a href="#impact">🏛️ Impact</a>
+        </nav>
+
+        <div class="actions">
+          <button class="btn" onclick="openAuth('login')">Login</button>
+          <button class="btn outline" onclick="openAuth('signup')">Create Account</button>
         </div>
-        <div class="hero-wave">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="#fff" fill-opacity="1"
-                    d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-                </path>
-            </svg>
-        </div>
-    </section>
-
-    <!-- Courses Section -->
-    <section id="courses" class="courses-section">
-        <div class="container">
-            <h2 class="section-title">Yo'nalishlarimiz</h2>
-            <div class="row g-4">
-                <!-- Python Card -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
-                        data-course="Python">
-                        <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-                            class="course-img card-img-top" alt="Python">
-                        <div class="course-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
-                                    <i class="fab fa-python fs-4 text-primary"></i>
-                                </div>
-                                <h3 class="course-title mb-0">Python Dasturlash</h3>
-                            </div>
-                            <p class="card-text">Python asoslaridan tortib to mukammal dasturlashgacha bo'lgan
-                                yo'nalish. Django va Flask frameworklari bilan tanishish.</p>
-                            <div class="mt-3">
-                                <span class="badge bg-primary bg-opacity-10 text-primary me-2">Django</span>
-                                <span class="badge bg-primary bg-opacity-10 text-primary me-2">Flask</span>
-                                <span class="badge bg-primary bg-opacity-10 text-primary">Data Science</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flutter Card -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
-                        data-course="Flutter">
-                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-                            class="course-img card-img-top" alt="Flutter">
-                        <div class="course-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="bg-info bg-opacity-10 p-2 rounded me-3">
-                                    <i class="fab fa-flutter fs-4 text-info"></i>
-                                </div>
-                                <h3 class="course-title mb-0">Flutter Mobil Dasturlash</h3>
-                            </div>
-                            <p class="card-text">Flutter frameworki yordamida iOS va Android platformalari uchun bir
-                                vaqtning o'zida mobil ilovalar yaratish.</p>
-                            <div class="mt-3">
-                                <span class="badge bg-info bg-opacity-10 text-info me-2">Dart</span>
-                                <span class="badge bg-info bg-opacity-10 text-info me-2">Firebase</span>
-                                <span class="badge bg-info bg-opacity-10 text-info">UI/UX</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AI Card -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
-                        data-course="Sun'iy Intellekt (AI)">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            class="course-img card-img-top" alt="AI">
-                        <div class="course-body">
-                            <h3 class="course-title">Sun'iy Intellekt (AI)</h3>
-                            <p class="card-text">Machine Learning, Deep Learning va Sun'iy Intellektning asosiy
-                                tamoyillari va amaliy qo'llanilishi.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DevOps Card -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
-                        data-course="DevOps">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-                            class="course-img card-img-top" alt="DevOps">
-                        <div class="course-body">
-                            <h3 class="course-title">DevOps</h3>
-                            <p class="card-text">Docker, Kubernetes, CI/CD va boshqa zamonaviy DevOps asboblari bilan
-                                ishlashni o'rganing.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- .NET Card -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
-                        data-course=".NET">
-                        <img src="https://images.unsplash.com/photo-1614332287897-cdc485fa562d?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-                            class="course-img card-img-top" alt=".NET">
-                        <div class="course-body">
-                            <h3 class="course-title">.NET Dasturlash</h3>
-                            <p class="card-text">C# va .NET framework yordamida korporativ darajadagi ilovalar yaratish.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Web Design Card -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-card" data-bs-toggle="modal" data-bs-target="#registrationModal"
-                        data-course="Veb Dizayn">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-                            class="course-img card-img-top" alt="Web Design">
-                        <div class="course-body">
-                            <h3 class="course-title">Veb Dizayn</h3>
-                            <p class="card-text">HTML, CSS, JavaScript va zamonaviy frameworklar yordamida chiroyli va
-                                funksional veb-saytlar yaratish.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-5 bg-light">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="section-title text-start">Biz haqimizda</h2>
-                    <p class="lead">Yozgi IT Oromgoh - bu yoshlarga zamonaviy IT yo'nalishlarini o'rgatish va ularning
-                        kelajakdagi kasbiy faoliyatiga yo'l ochish maqsadida tashkil etilgan loyiha.</p>
-                    <p>Bizning o'quv dasturlarimiz amaliyotga asoslangan bo'lib, har bir o'quvchi real loyihalarda
-                        ishlash imkoniyatiga ega bo'ladi. Tajribali mutaxassislar tomonidan tuzilgan dasturlarimiz sizga
-                        eng so'nggi texnologiyalarni o'zlashtirishga yordam beradi.</p>
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-                        class="img-fluid rounded shadow" alt="Team">
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Aloqa</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h3 class="card-title">Biz bilan bog'laning</h3>
-                            <p class="card-text"><i class="bi bi-geo-alt-fill"></i> Manzil: Toshkent shahri, Yunusobod
-                                tumani</p>
-                            <p class="card-text"><i class="bi bi-telephone-fill"></i> Telefon: +998 90 123 45 67</p>
-                            <p class="card-text"><i class="bi bi-envelope-fill"></i> Email: info@it-oromgoh.uz</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Savollaringiz bormi?</h3>
-                            <form>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Ismingiz">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="email" class="form-control" placeholder="Email manzilingiz">
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control" rows="3" placeholder="Xabaringiz"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Yuborish</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h3>🌐 Yozgi IT Oromgoh</h3>
-                    <p>Texnologiyalar bilan tanishing va kelajagingizni quring</p>
-                </div>
-
-                <div class="col-md-8">
-                    <h3>Ijtimoiy tarmoqlar</h3>
-                    <div class="d-flex justify-content-center gap-4 mt-3">
-                        <a href="https://t.me/shamshodbek_cyber" class="social-icon" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-                                alt="Telegram" width="40">
-                        </a>
-                        <a href="https://instagram.com/shamshodbek_cyber" class="social-icon" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-                                alt="Instagram" width="40">
-                        </a>
-                        <a href="https://facebook.com/shamshodbek_cyber" class="social-icon" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                                alt="Facebook" width="40">
-                        </a>
-                        <a href="https://youtube.com/shamshodbek_cyber" class="social-icon" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
-                                alt="YouTube" width="40" height="38">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-4 bg-light">
-            <p class="mb-0">© 2025 Yozgi IT Oromgoh. Barcha huquqlar himoyalangan.</p>
-        </div>
-    </footer>
-
-    <!-- Registration Modal -->
-    <div class="modal fade" id="registrationModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Ro'yxatdan o'tish</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="registrationForm">
-                        <div class="mb-3">
-                            <label for="firstName" class="form-label">Ism</label>
-                            <input type="text" class="form-control" id="firstName" required="">
-                        </div>
-                        <div class="mb-3">
-                            <label for="lastName" class="form-label">Familiya</label>
-                            <input type="text" class="form-control" id="lastName" required="">
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Telefon raqam</label>
-                            <input type="tel" class="form-control" id="phone" required="">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" required="">
-                        </div>
-                        <div class="mb-3">
-                            <label for="about" class="form-label">O'zingiz haqingizda qisqacha</label>
-                            <textarea class="form-control" id="about" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="course" class="form-label">Yo'nalish</label>
-                            <select class="form-select" id="course" required="">
-                                <option value="" selected="" disabled="">Tanlang</option>
-                                <option value="Python">Python Dasturlash</option>
-                                <option value="Flutter">Flutter Mobil Dasturlash</option>
-                                <option value="Sun'iy Intellekt (AI)">Sun'iy Intellekt (AI)</option>
-                                <option value="DevOps">DevOps</option>
-                                <option value=".NET">.NET Dasturlash</option>
-                                <option value="Veb Dizayn">Veb Dizayn</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>
-                    <button type="submit" form="registrationForm" class="btn btn-primary">Yuborish</button>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </header>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+  <main class="container">
 
-        // Set course in modal when card is clicked
-        document.addEventListener('DOMContentLoaded', function () {
-            const registrationModal = document.getElementById('registrationModal');
-            if (registrationModal) {
-                registrationModal.addEventListener('show.bs.modal', function (event) {
-                    const button = event.relatedTarget;
-                    const course = button.getAttribute('data-course');
-                    const modalCourseSelect = registrationModal.querySelector('#course');
-                    if (course && modalCourseSelect) {
-                        modalCourseSelect.value = course;
-                    }
-                });
-            }
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div>
+        <div class="badgeRow">
+          <span class="badge"><span class="dot cyan"></span> Real-time Market Signal</span>
+          <span class="badge"><span class="dot purple"></span> AI Forecasting</span>
+          <span class="badge"><span class="dot green"></span> Personalized Roadmaps</span>
+        </div>
 
-            // Form submission
-            const registrationForm = document.getElementById('registrationForm');
-            if (registrationForm) {
-                registrationForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
+        <h2 class="headline">Discover the Right Skills for the Future of Uzbekistan</h2>
+        <p class="sub">
+          A premium AI-powered platform that turns job-market demand into clear learning decisions —
+          by region, by industry, and by what’s next.
+        </p>
 
-                    const formData = new FormData(registrationForm);
-                    const data = Object.fromEntries(formData.entries());
-                    data.timestamp = new Date().toISOString();
+        <div class="questionRow" aria-live="polite">
+          <div class="pulseDot"></div>
+          <div class="carouselText" id="carouselText">Are you struggling to find a job?</div>
+        </div>
 
-                    fetch(' save_registration.php', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
-                    })
-                    .then(res => res.json())
-                    .then(res => {
-                        if (res.success) {
-                            alert("Ma'lumotlaringiz saqlandi!");
-                            registrationForm.reset();
-                            const modal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
-                            if (modal) modal.hide();
-                        } else {
-                            alert("Xatolik yuz berdi!");
-                        }
-                    })
-                    .catch(() => alert("Xatolik yuz berdi!"));
-                });
-            }
-        });
-    </script>
+        <div class="heroCtas">
+          <button class="btn primary" onclick="scrollToId('trends')">⚡ Explore Skill Trends</button>
+          <button class="btn" onclick="scrollToId('map')">🗺️ Open Regional Map</button>
+          <button class="btn small" onclick="openAuth('signup')">✨ Get a Personal Plan</button>
+        </div>
+      </div>
 
+      <div class="heroCard">
+        <div class="heroCardInner">
+          <div class="kpiGrid">
+            <div class="kpi">
+              <b id="kpiSignals">12,480</b>
+              <small>Market signals indexed</small>
+            </div>
+            <div class="kpi">
+              <b id="kpiSkills">186</b>
+              <small>Skills tracked</small>
+            </div>
+            <div class="kpi">
+              <b id="kpiForecast">+18%</b>
+              <small>12-month outlook</small>
+            </div>
+          </div>
+
+          <div class="miniCard">
+            <div class="row">
+              <span>National readiness score</span>
+              <span style="color:var(--text); font-weight:900;">78 / 100</span>
+            </div>
+            <div class="progressBar"><i></i></div>
+
+            <div class="robotWrap">
+              <div class="robotText">
+                <b style="color:var(--text)">AI Navigator</b><br/>
+                Your guide for skill choices, regional demand, and step-by-step learning roadmaps.
+              </div>
+
+              <!-- Inline Robot SVG (no copyright issues) -->
+              <svg class="robot" viewBox="0 0 200 200" aria-label="AI Robot">
+                <defs>
+                  <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="rgba(0,230,255,.95)"/>
+                    <stop offset="1" stop-color="rgba(139,92,246,.95)"/>
+                  </linearGradient>
+                </defs>
+                <g fill="none" stroke="url(#rg)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M85 26h30" />
+                  <path d="M100 26v18" />
+                  <circle cx="100" cy="28" r="6" fill="rgba(0,230,255,.75)" stroke="none"/>
+                  <rect x="48" y="50" width="104" height="88" rx="22"/>
+                  <path d="M62 140v10c0 12 10 22 22 22h32c12 0 22-10 22-22v-10"/>
+                  <rect x="58" y="62" width="84" height="42" rx="14"/>
+                  <circle cx="82" cy="83" r="6" fill="rgba(0,255,156,.78)" stroke="none"/>
+                  <circle cx="118" cy="83" r="6" fill="rgba(255,77,255,.78)" stroke="none"/>
+                  <path d="M84 110h32"/>
+                  <path d="M38 88h-14"/>
+                  <path d="M176 88h-14"/>
+                  <path d="M52 154h-22"/>
+                  <path d="M148 154h22"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <button class="btn primary" onclick="scrollToId('advisor')">🤖 Generate My Roadmap</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="section" id="map">
+      <div class="sectionHead">
+        <div>
+          <h2>Uzbekistan Regional Skill Map</h2>
+          <p>
+            Hover or click hotspots to reveal regional demand. The right panel updates instantly with top skills and growth momentum.
+          </p>
+        </div>
+        <button class="btn" onclick="refreshInsightLayer()">♻️ Refresh Insight Layer</button>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="cardHeader">
+            <div class="title"><span class="icon">🧭</span> Interactive Map</div>
+            <div style="color:var(--muted); font-size:12px; font-weight:800;">Live hover · instant details</div>
+          </div>
+
+          <div class="cardBody">
+            <div class="mapStage" id="mapStage">
+              <div class="hint">Tip: Hover a marker · Click to lock selection</div>
+              <div class="tooltip" id="tooltip"></div>
+
+              <!-- Put your map image here -->
+              <img class="mapImg" src="map.png" alt="Uzbekistan map" />
+
+              <div class="mapOverlayGlow"></div>
+
+              <!-- Hotspots (positions are tuned for this map image layout) -->
+              <button class="hotspot" style="left:20%; top:28%;" data-id="kk" aria-label="Karakalpakstan"></button>
+              <button class="hotspot" style="left:29%; top:48%;" data-id="kh" aria-label="Khorezm"></button>
+              <button class="hotspot" style="left:47%; top:45%;" data-id="nv" aria-label="Navoi"></button>
+              <button class="hotspot" style="left:45%; top:63%;" data-id="bu" aria-label="Bukhara"></button>
+              <button class="hotspot" style="left:61%; top:67%;" data-id="sa" aria-label="Samarkand"></button>
+              <button class="hotspot" style="left:68%; top:60%;" data-id="ji" aria-label="DJizzakh"></button>
+              <button class="hotspot" style="left:77%; top:50%;" data-id="tk" aria-label="Tashkent"></button>
+              <button class="hotspot" style="left:73%; top:57%;" data-id="si" aria-label="Sirdarya"></button>
+              <button class="hotspot" style="left:85%; top:50%;" data-id="na" aria-label="Namangan"></button>
+              <button class="hotspot" style="left:91%; top:51%;" data-id="ad" aria-label="Andijan"></button>
+              <button class="hotspot" style="left:87%; top:55%;" data-id="fe" aria-label="Fergana"></button>
+              <button class="hotspot" style="left:60%; top:78%;" data-id="qa" aria-label="Kashkadarya"></button>
+              <button class="hotspot" style="left:66%; top:84%;" data-id="su" aria-label="Surkhandarya"></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardHeader">
+            <div class="title"><span class="icon">📍</span> Regional Insights</div>
+            <button class="btn small" onclick="selectRegion('tk')">Spotlight: Tashkent</button>
+          </div>
+
+          <div class="cardBody">
+            <div class="sidePanel">
+              <div class="panelTop">
+                <div>
+                  <div class="muted" style="font-size:12px;">Selected region</div>
+                  <h3 class="regionName" id="regionName">—</h3>
+                </div>
+                <div class="pill" id="regionScore">Demand: —</div>
+              </div>
+
+              <div class="muted">
+                <span id="regionIndustry">Industry focus: —</span><br/>
+                <span id="regionGrowth">Growth momentum: —</span>
+              </div>
+
+              <div class="list" id="skillsList"></div>
+
+              <button class="btn primary" onclick="scrollToId('advisor')">🤖 Get a Regional Roadmap</button>
+              <button class="btn" onclick="openAuth('signup')">✨ Save to Dashboard</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRENDS -->
+    <section class="section" id="trends">
+      <div class="sectionHead">
+        <div>
+          <h2>Skill Trend Analytics</h2>
+          <p>Compare current demand with 6–12 month projections. Designed to make decisions fast and confidently.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="cardHeader">
+          <div class="title"><span class="icon">📊</span> Demand vs Forecast</div>
+          <div style="color:var(--muted); font-size:12px; font-weight:800;">Hover for values</div>
+        </div>
+
+        <div class="tabs" id="tabs"></div>
+        <div class="chartWrap">
+          <canvas id="trendChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI ADVISOR -->
+    <section class="section" id="advisor">
+      <div class="sectionHead">
+        <div>
+          <h2>AI Career Advisor</h2>
+          <p>Get recommended career paths, prioritized skills, and a clean roadmap with milestones you can follow.</p>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="cardHeader">
+            <div class="title"><span class="icon">🧩</span> Your Profile</div>
+            <button class="btn small" onclick="useSelectedRegion()">Use selected region</button>
+          </div>
+          <div class="cardBody">
+            <div class="form">
+              <div>
+                <label>Age</label>
+                <input id="age" type="number" min="10" max="70" value="17" />
+              </div>
+
+              <div>
+                <label>Region</label>
+                <select id="regionSelect"></select>
+              </div>
+
+              <div>
+                <label>Interests</label>
+                <select id="interest">
+                  <option value="ai">AI & Data</option>
+                  <option value="prog">Programming</option>
+                  <option value="eng">Engineering</option>
+                  <option value="digital">Digital Professions</option>
+                  <option value="soft">Soft Skills</option>
+                </select>
+              </div>
+
+              <div>
+                <label>Current skill level</label>
+                <select id="level">
+                  <option>Beginner</option>
+                  <option>Intermediate</option>
+                  <option>Advanced</option>
+                </select>
+              </div>
+
+              <button class="btn primary" onclick="runAdvisor()">✨ Generate My Roadmap</button>
+              <button class="btn" onclick="openAuth('signup')">🔒 Create account to save</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardHeader">
+            <div class="title"><span class="icon">🤖</span> Recommendations</div>
+            <div style="color:var(--muted); font-size:12px; font-weight:800;">Career · Skills · Roadmap</div>
+          </div>
+
+          <div class="cardBody">
+            <div class="outputBox">
+              <div class="outputInner" id="aiOutput">
+                <div class="aiStatus"><span class="spinner" id="spin"></span><span id="aiStatusText">Ready to generate recommendations.</span></div>
+                <div class="muted">
+                  Your results will appear here: career paths, skills to learn, and a month-by-month roadmap with milestones.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="section" id="impact">
+      <div class="sectionHead">
+        <div>
+          <h2>National Impact</h2>
+          <p>Designed as a national-level AI platform connecting education with employment — by region and by real demand.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="cardBody" style="display:grid; gap:12px;">
+          <div class="item">
+            <div class="row"><b>✅ Youth Career Navigation</b><span>Clear guidance</span></div>
+            <div class="bar"><i style="width:86%"></i></div>
+          </div>
+          <div class="item">
+            <div class="row"><b>✅ Regional Skills Visibility</b><span>Map-based insights</span></div>
+            <div class="bar"><i style="width:79%"></i></div>
+          </div>
+          <div class="item">
+            <div class="row"><b>✅ Employer–Education Alignment</b><span>Market signal layer</span></div>
+            <div class="bar"><i style="width:73%"></i></div>
+          </div>
+          <div class="item">
+            <div class="row"><b>✅ AI Forecasting Layer</b><span>Future planning</span></div>
+            <div class="bar"><i style="width:69%"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> AI SkillMap Uzbekistan · Premium AI workforce intelligence portal.
+    </footer>
+  </main>
+
+  <!-- AUTH MODAL -->
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modalInner">
+        <div class="modalTop">
+          <h3 id="authTitle">Login</h3>
+          <button class="close" onclick="closeAuth()">✕</button>
+        </div>
+
+        <div class="muted" id="authSubtitle" style="margin-top:-6px;">
+          Welcome back. Access your dashboard and saved roadmaps.
+        </div>
+
+        <div class="form" style="margin-top:6px;">
+          <div>
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" />
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" />
+          </div>
+
+          <button class="btn primary" onclick="authSubmit()">Continue</button>
+          <button class="btn" onclick="closeAuth()">Cancel</button>
+
+          <div class="muted" style="font-size:12px;">
+            <span id="switchText">New here?</span>
+            <a class="link" id="switchLink" onclick="toggleAuthMode()">Create an account</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Particles
+    (function initParticles(){
+      const root = document.getElementById("particles");
+      const count = 46;
+      for(let i=0;i<count;i++){
+        const d = document.createElement("div");
+        d.className = "p";
+        const left = Math.random()*100;
+        const top = 105 + Math.random()*130;
+        const dur = 7 + Math.random()*10;
+        const delay = Math.random()*6;
+        const size = 2 + Math.random()*2;
+        d.style.left = left + "vw";
+        d.style.top = top + "vh";
+        d.style.animationDuration = dur + "s";
+        d.style.animationDelay = delay + "s";
+        d.style.width = size + "px";
+        d.style.height = size + "px";
+        const hue = 175 + Math.random()*130;
+        d.style.background = `hsla(${hue}, 95%, 60%, .85)`;
+        d.style.boxShadow = `0 0 16px hsla(${hue}, 95%, 60%, .75)`;
+        root.appendChild(d);
+      }
+    })();
+
+    // Smooth scroll
+    function scrollToId(id){
+      document.getElementById(id).scrollIntoView({behavior:"smooth", block:"start"});
+    }
+
+    // Rotating hero questions
+    const questions = [
+      "Are you struggling to find a job?",
+      "Not sure which skills to learn next?",
+      "Is a diploma enough for today’s job market?",
+      "Which skills will matter in 2030?",
+      "How does demand shift across regions?",
+      "What should you learn in the next 6 months?"
+    ];
+    let qIdx = 0;
+    const carouselEl = document.getElementById("carouselText");
+    setInterval(() => {
+      qIdx = (qIdx + 1) % questions.length;
+      carouselEl.style.opacity = 0;
+      setTimeout(() => {
+        carouselEl.textContent = questions[qIdx];
+        carouselEl.style.opacity = 1;
+      }, 200);
+    }, 2600);
+
+    // Regional dataset (presentation-ready)
+    const regions = {
+      tk: { name:"Tashkent", demand: 92, growth: 27, industry:"IT, Fintech, Startups", top:["Python","Data Analytics","UX/UI"], levels:[88,74,66] },
+      ad: { name:"Andijan", demand: 71, growth: 17, industry:"Industry, Logistics", top:["Automation","CAD","Project Management"], levels:[68,60,52] },
+      fe: { name:"Fergana", demand: 74, growth: 19, industry:"Manufacturing, Trade", top:["Excel","Sales","Digital Marketing"], levels:[72,64,55] },
+      na: { name:"Namangan", demand: 66, growth: 15, industry:"SME, E-commerce", top:["SMM","Content","Customer Success"], levels:[63,58,49] },
+      si: { name:"Sirdarya", demand: 60, growth: 13, industry:"Agro, Logistics", top:["Supply Chain","Excel","Quality"], levels:[59,51,45] },
+      ji: { name:"DJizzakh", demand: 61, growth: 13, industry:"Agro, Manufacturing", top:["Operations","Excel","Quality"], levels:[59,51,45] },
+      sa: { name:"Samarkand", demand: 77, growth: 20, industry:"Tourism, IT, Education", top:["English","Web Development","Design"], levels:[76,62,56] },
+      qa: { name:"Kashkadaryo", demand: 57, growth: 12, industry:"Energy, Services", top:["Technician Skills","Safety","Excel"], levels:[55,48,45] },
+      su: { name:"Surkhandarya", demand: 58, growth: 12, industry:"Agro, Services", top:["Accounting","Sales","Communication"], levels:[54,50,46] },
+      nv: { name:"Navoi", demand: 69, growth: 16, industry:"Mining, Engineering", top:["Engineering","Safety","Data Reporting"], levels:[66,57,50] },
+      bu: { name:"Bukhara", demand: 64, growth: 14, industry:"Tourism, Services", top:["Hospitality","Digital Ads","Sales"], levels:[60,52,48] },
+      kh: { name:"Khorezm", demand: 60, growth: 13, industry:"Trade, Tourism", top:["SMM","English","Sales"], levels:[58,53,46] },
+      kk: { name:"Karakalpakstan", demand: 55, growth: 11, industry:"Public Sector, Energy", top:["IT Support","Accounting","Project Management"], levels:[52,49,44] },
+    };
+
+    // Tooltip
+    const tooltip = document.getElementById("tooltip");
+    const stage = document.getElementById("mapStage");
+    let selectedRegionId = null;
+
+    function showTooltip(x,y, info){
+      tooltip.innerHTML = `
+        <b>📍 ${info.name}</b>
+        <div class="meta">
+          Top skills: ${info.top.join(", ")}<br/>
+          Growth momentum: +${info.growth}%<br/>
+          Industry focus: ${info.industry}
+        </div>
+        <div class="tags">
+          <span class="tag">Demand ${info.demand}/100</span>
+          <span class="tag">6–12 month outlook</span>
+          <span class="tag">Future-ready</span>
+        </div>
+      `;
+      tooltip.style.left = x + "px";
+      tooltip.style.top = y + "px";
+      tooltip.classList.add("show");
+    }
+    function hideTooltip(){ tooltip.classList.remove("show"); }
+
+    // Hotspot interactions
+    document.querySelectorAll(".hotspot").forEach(h=>{
+      h.addEventListener("mousemove", (e)=>{
+        const id = h.dataset.id;
+        const info = regions[id];
+        if(!info) return;
+        const rect = stage.getBoundingClientRect();
+        showTooltip(e.clientX - rect.left, e.clientY - rect.top, info);
+      });
+      h.addEventListener("mouseleave", hideTooltip);
+      h.addEventListener("click", ()=>{
+        selectRegion(h.dataset.id);
+      });
+    });
+
+    function selectRegion(id){
+      const info = regions[id];
+      if(!info) return;
+      selectedRegionId = id;
+
+      document.getElementById("regionName").textContent = info.name;
+      document.getElementById("regionScore").textContent = `Demand: ${info.demand}/100`;
+      document.getElementById("regionIndustry").textContent = `Industry focus: ${info.industry}`;
+      document.getElementById("regionGrowth").textContent = `Growth momentum: +${info.growth}%`;
+
+      const list = document.getElementById("skillsList");
+      list.innerHTML = "";
+      info.top.forEach((skill, idx)=>{
+        const pct = info.levels[idx] ?? (55 + idx*8);
+        const item = document.createElement("div");
+        item.className = "item";
+        item.innerHTML = `
+          <div class="row">
+            <b>${skill}</b>
+            <span>${pct}% priority</span>
+          </div>
+          <div class="bar"><i style="width:${pct}%"></i></div>
+        `;
+        list.appendChild(item);
+      });
+
+      const select = document.getElementById("regionSelect");
+      if([...select.options].some(o=>o.value===id)) select.value = id;
+    }
+
+    function refreshInsightLayer(){
+      // subtle realism: small drift
+      Object.keys(regions).forEach(id=>{
+        regions[id].demand = Math.max(40, Math.min(96, regions[id].demand + Math.round((Math.random()-0.5)*10)));
+        regions[id].growth = Math.max(7, Math.min(32, regions[id].growth + Math.round((Math.random()-0.5)*6)));
+      });
+
+      if(selectedRegionId) selectRegion(selectedRegionId);
+      toast("Insight layer refreshed.");
+    }
+
+    // Populate region dropdown
+    const regionSelect = document.getElementById("regionSelect");
+    function populateRegions(){
+      regionSelect.innerHTML = "";
+      Object.entries(regions).forEach(([id, info])=>{
+        const opt = document.createElement("option");
+        opt.value = id;
+        opt.textContent = info.name;
+        regionSelect.appendChild(opt);
+      });
+      regionSelect.value = "tk";
+    }
+    populateRegions();
+
+    function useSelectedRegion(){
+      if(!selectedRegionId){ scrollToId("map"); return; }
+      regionSelect.value = selectedRegionId;
+      scrollToId("advisor");
+    }
+
+    // Trends
+    const tabData = {
+      "AI & Data": {
+        labels: ["Python","SQL","Power BI","ML Fundamentals","Data Engineering"],
+        current: [78,70,62,55,48],
+        predicted: [88,80,70,67,60],
+      },
+      "Programming": {
+        labels: ["JavaScript","React","Node.js","Java","C#"],
+        current: [74,68,60,52,46],
+        predicted: [82,76,70,60,54],
+      },
+      "Engineering": {
+        labels: ["AutoCAD","PLC","Quality","Safety","Project Mgmt"],
+        current: [64,58,55,62,57],
+        predicted: [70,66,62,68,63],
+      },
+      "Digital Professions": {
+        labels: ["SMM","SEO","Design","Content","Ads"],
+        current: [66,54,61,58,56],
+        predicted: [72,62,70,65,64],
+      },
+      "Soft Skills": {
+        labels: ["English","Communication","Teamwork","Leadership","Sales"],
+        current: [72,68,60,55,62],
+        predicted: [80,76,68,64,70],
+      }
+    };
+
+    const tabsEl = document.getElementById("tabs");
+    let activeTab = Object.keys(tabData)[0];
+
+    function buildTabs(){
+      tabsEl.innerHTML = "";
+      Object.keys(tabData).forEach(name=>{
+        const b = document.createElement("button");
+        b.className = "tab" + (name===activeTab ? " active" : "");
+        b.textContent = name;
+        b.onclick = () => { activeTab = name; buildTabs(); updateChart(); };
+        tabsEl.appendChild(b);
+      });
+    }
+    buildTabs();
+
+    const trendChart = new Chart(document.getElementById("trendChart"), {
+      type: "bar",
+      data: {
+        labels: tabData[activeTab].labels,
+        datasets: [
+          { label:"Current demand", data: tabData[activeTab].current, borderWidth: 1 },
+          { label:"Forecast (6–12 months)", data: tabData[activeTab].predicted, borderWidth: 1 }
+        ]
+      },
+      options: {
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{ labels:{ color: "rgba(234,240,255,.88)", font:{weight:"800"} } },
+          tooltip:{ callbacks:{ label: (ctx)=> `${ctx.dataset.label}: ${ctx.parsed.y}%` } }
+        },
+        scales:{
+          x:{ ticks:{ color:"rgba(166,176,214,.88)" }, grid:{ color:"rgba(255,255,255,.06)" } },
+          y:{ ticks:{ color:"rgba(166,176,214,.88)" }, grid:{ color:"rgba(255,255,255,.06)" }, suggestedMax: 100 }
+        }
+      }
+    });
+
+    function updateChart(){
+      trendChart.data.labels = tabData[activeTab].labels;
+      trendChart.data.datasets[0].data = tabData[activeTab].current;
+      trendChart.data.datasets[1].data = tabData[activeTab].predicted;
+      trendChart.update();
+    }
+
+    // Advisor
+    function runAdvisor(){
+      const age = Number(document.getElementById("age").value || 0);
+      const rid = document.getElementById("regionSelect").value;
+      const interest = document.getElementById("interest").value;
+      const level = document.getElementById("level").value;
+
+      const r = regions[rid];
+      const catalog = {
+        ai: {
+          paths:["Data Analyst","AI Operations Associate","Junior ML Engineer"],
+          skills:["Python","SQL","Data Visualization","ML Fundamentals","Statistics"],
+          project:"Build a regional market dashboard (KPIs + insight cards + map view)."
+        },
+        prog: {
+          paths:["Frontend Developer","Backend Developer","Full-stack Engineer"],
+          skills:["JavaScript","React","Git","APIs","Node.js"],
+          project:"Build an AI portal interface with auth, dashboards, and analytics charts."
+        },
+        eng: {
+          paths:["Automation Technician","QA Engineer","Project Engineer"],
+          skills:["AutoCAD","PLC Basics","Safety Standards","Reporting","Project Management"],
+          project:"Create a workflow tracker with quality checklists and reporting."
+        },
+        digital: {
+          paths:["Digital Marketer","Content Strategist","UI / Visual Designer"],
+          skills:["SMM","SEO","Design Basics","Ads Optimization","Analytics"],
+          project:"Launch a campaign dashboard with creative testing and ROI metrics."
+        },
+        soft: {
+          paths:["Sales Specialist","Customer Success Manager","Team Lead (growth)"],
+          skills:["English","Communication","Negotiation","Presentation","Time Management"],
+          project:"Create an onboarding playbook + performance scorecard for customers."
+        }
+      }[interest];
+
+      const pace = (level==="Advanced") ? "Fast-track" : (level==="Intermediate" ? "Balanced" : "Foundation");
+      const focus = (age <= 18) ? "Student-friendly pace" : "Career acceleration pace";
+
+      const aiOutput = document.getElementById("aiOutput");
+      const spin = document.getElementById("spin");
+      const status = document.getElementById("aiStatusText");
+
+      spin.style.display = "inline-block";
+      status.textContent = "Generating recommendations…";
+
+      setTimeout(()=>{
+        spin.style.display = "none";
+        status.textContent = "Recommendations generated.";
+
+        aiOutput.innerHTML = `
+          <div class="aiStatus"><span class="spinner" style="display:none;"></span><span>Recommendations generated.</span></div>
+
+          <div class="item">
+            <div class="row"><b>🎯 Recommended career paths</b><span>${r.name}</span></div>
+            <div class="muted" style="font-size:13px;">• ${catalog.paths.join("<br/>• ")}</div>
+          </div>
+
+          <div class="item">
+            <div class="row"><b>📚 Prioritized skills</b><span>Demand ${r.demand}/100</span></div>
+            <div class="muted" style="font-size:13px;">• ${catalog.skills.join("<br/>• ")}</div>
+          </div>
+
+          <div class="item">
+            <div class="row"><b>🧠 Strategy</b><span>${pace} · ${focus}</span></div>
+            <div class="muted" style="font-size:13px;">Industry focus: ${r.industry}. Growth momentum: +${r.growth}%.</div>
+          </div>
+
+          <div class="item">
+            <div class="row"><b>🧪 Portfolio project</b><span>High-signal</span></div>
+            <div class="muted" style="font-size:13px;">${catalog.project}</div>
+          </div>
+
+          <div class="roadmap">
+            <div class="step"><b>Month 1–2 — Foundations</b><small>Core concepts + daily practice. Build consistency and confidence.</small></div>
+            <div class="step"><b>Month 3–4 — Projects & Proof</b><small>Create 2 portfolio projects and publish them with clear case studies.</small></div>
+            <div class="step"><b>Month 5–6 — Market Entry</b><small>Internship / junior applications, interviews, networking, and iteration.</small></div>
+          </div>
+        `;
+        toast("Roadmap generated.");
+      }, 650);
+    }
+
+    // Default selection
+    selectRegion("tk");
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Auth modal
+    const overlay = document.getElementById("overlay");
+    let authMode = "login";
+
+    function openAuth(mode){
+      authMode = mode;
+      renderAuth();
+      overlay.classList.add("show");
+    }
+    function closeAuth(){ overlay.classList.remove("show"); }
+
+    function renderAuth(){
+      const title = document.getElementById("authTitle");
+      const sub = document.getElementById("authSubtitle");
+      const st = document.getElementById("switchText");
+      const sl = document.getElementById("switchLink");
+
+      if(authMode === "login"){
+        title.textContent = "Login";
+        sub.textContent = "Welcome back. Access your dashboard and saved roadmaps.";
+        st.textContent = "New here?";
+        sl.textContent = "Create an account";
+      } else {
+        title.textContent = "Create Account";
+        sub.textContent = "Unlock personalized roadmaps, saved skills, and progress tracking.";
+        st.textContent = "Already have an account?";
+        sl.textContent = "Login instead";
+      }
+    }
+    function toggleAuthMode(){
+      authMode = (authMode === "login") ? "signup" : "login";
+      renderAuth();
+    }
+    function authSubmit(){
+      closeAuth();
+      toast(authMode === "login" ? "Welcome back — access granted." : "Account created — ready to save your roadmap.");
+    }
+
+    overlay.addEventListener("click", (e)=>{ if(e.target === overlay) closeAuth(); });
+    window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeAuth(); });
+
+    // Toast
+    function toast(text){
+      const t = document.createElement("div");
+      t.style.position="fixed";
+      t.style.left="50%";
+      t.style.bottom="22px";
+      t.style.transform="translateX(-50%)";
+      t.style.padding="12px 14px";
+      t.style.borderRadius="16px";
+      t.style.border="1px solid rgba(255,255,255,.12)";
+      t.style.background="rgba(10,16,38,.86)";
+      t.style.color="rgba(234,240,255,.95)";
+      t.style.boxShadow="0 22px 70px rgba(0,0,0,.7)";
+      t.style.zIndex="200";
+      t.style.fontWeight="900";
+      t.style.fontSize="13px";
+      t.style.backdropFilter="blur(10px)";
+      t.textContent=text;
+      document.body.appendChild(t);
+      setTimeout(()=>{ t.style.opacity="0"; t.style.transition="opacity .25s ease"; }, 1700);
+      setTimeout(()=> t.remove(), 2050);
+    }
+  </script>
 </body>
-
 </html>
